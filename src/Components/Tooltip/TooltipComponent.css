@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* css variable for tooltip component */
+:root {
+    --tooltip-text-color: white;
+    --tooltip-background-color: lime;
+    --tooltip-margin: 10px;
+    --tooltip-arrow-size: 10px;
+  }
+
+/* css for direction container */
+.directions-content{
+    background: rgba(255, 355, 355, 0.05);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 355, 355, 0.1);
+    backdrop-filter: blur(20px);
+    height: 100px;
+    width: 150px;
+    padding: .5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    margin-bottom: 3rem;
+    border-radius: 25px;
+    color: var(--tooltip-text-color);
+}
+
+/* for Tooltip */
+.Tooltip-tip{
+    position: absolute;
+    padding: 10px 5px;
+    border-radius: 10px;
+    background-color: var(--tooltip-background-color);
+    color: black;
+    font-weight: normal;
+}
+
+
+
+.Tooltip-tip::before {
+    content: " ";
+    left: 50%;
+    position: absolute;
+    pointer-events: none;
+    border: solid transparent;
+    border-width: var(--tooltip-arrow-size);
+    margin-left: calc(var(--tooltip-arrow-size) * -1);
+  }
+
+
+  /* css for top Tooltip */
+.Tooltip-tip.top {
+    white-space: nowrap;
+    top: -50% ;
+  }
+
+    /* css for top Tooltip before pseudo class*/
+  .Tooltip-tip.top::before {
+    top: 100%;
+    border-top-color: var(--tooltip-background-color);
+  }
+
+
+    /* css for bottom Tooltip */
+.Tooltip-tip.bottom {
+   bottom: -50%;
+   white-space: nowrap;
+
+}
+   /* css for bottom Tooltip before pseudo class*/
+.Tooltip-tip.bottom::before{
+    border-bottom-color: var(--tooltip-background-color);
+    top: -50%;
+}
+
+/* css for right Tooltip */
+.Tooltip-tip.right {
+    transform: translateX(115%);
+}
+/* css for right Tooltip before pseudo class*/
+.Tooltip-tip.right::before{
+    top: calc(50% - var(--tooltip-arrow-size));
+    left: calc( 1% + var(--tooltip-arrow-size) * -1 );
+    border-right-color: var(--tooltip-background-color);
+
+}
+
+/* css for left Tooltip */
+.Tooltip-tip.left {
+    transform:  translateX(-115%);
+} 
+/* css for left Tooltip before pseudo class*/
+.Tooltip-tip.left::before{
+    border-left-color: var(--tooltip-background-color);
+    top: calc(50% - var(--tooltip-arrow-size));
+    left: calc(99% + var(--tooltip-arrow-size));
+}
